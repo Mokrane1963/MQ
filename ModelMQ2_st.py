@@ -8,7 +8,7 @@ Created on Thu Sep 18 22:18:30 2025
 import numpy as np
 import streamlit as st
 
-import matplotlib.pyplot as plt
+
 
 # =======================
 # Définition des données
@@ -91,28 +91,13 @@ def predict_response(concentration):
 predicted_responses = predict_response(concentrations)
 
 
-# =======================
-# Visualisation
-# =======================
-fig, ax = plt.subplots(figsize=(8, 6))
-ax.scatter(concentrations, responses, color="red", label=choix)
-ax.plot(concentrations, predicted_responses, color="blue", label="Modèle ajusté")
-ax.set_xscale("log")
-ax.set_yscale("log")
-ax.set_xlabel("Concentration (ppm, échelle log)", fontsize=12)
-ax.set_ylabel("Rs/R0 (échelle log)", fontsize=12)
-ax.set_title("Modèle ajusté pour le capteur MQ2", fontsize=14)
+
 
 equation_text = f"y = {a:.4f} * x^{b:.8f}"
-ax.text(0.1, 0.25, equation_text, transform=ax.transAxes,
-        fontsize=12, verticalalignment="top",
-        bbox=dict(boxstyle="round,pad=0.3", edgecolor="blue", facecolor="lightgrey"))
 
 
 
-ax.grid(True, which="both", linestyle="--", linewidth=0.5)
-ax.legend(fontsize=12)
-st.pyplot(fig)
+
 
 # =======================
 # Affichage des métriques
