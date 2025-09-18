@@ -7,7 +7,7 @@ Created on Thu Sep 18 22:18:30 2025
 
 import numpy as np
 import streamlit as st
-from sklearn.metrics import mean_squared_error, r2_score
+
 import matplotlib.pyplot as plt
 
 # =======================
@@ -89,8 +89,7 @@ def predict_response(concentration):
 
 # Évaluation du modèle
 predicted_responses = predict_response(concentrations)
-mse = mean_squared_error(responses, predicted_responses)
-r2 = r2_score(responses, predicted_responses)
+
 
 # =======================
 # Visualisation
@@ -108,10 +107,8 @@ equation_text = f"y = {a:.4f} * x^{b:.8f}"
 ax.text(0.1, 0.25, equation_text, transform=ax.transAxes,
         fontsize=12, verticalalignment="top",
         bbox=dict(boxstyle="round,pad=0.3", edgecolor="blue", facecolor="lightgrey"))
-R_text = f"R² = {r2:.4f}"
-ax.text(0.2, 0.3, R_text, transform=ax.transAxes,
-        fontsize=12, verticalalignment="top",
-        bbox=dict(boxstyle="round,pad=0.3", edgecolor="blue", facecolor="lightgrey"))
+
+
 
 ax.grid(True, which="both", linestyle="--", linewidth=0.5)
 ax.legend(fontsize=12)
@@ -121,8 +118,7 @@ st.pyplot(fig)
 # Affichage des métriques
 # =======================
 st.write(f"**Modèle ajusté :** y = {a:.4f} * x^{b:.8f}")
-st.write(f"**Erreur quadratique moyenne (MSE) :** {mse:.8f}")
-st.write(f"**Coefficient de détermination (R²) :** {r2:.8f}")
+
 
 # =======================
 # Prédiction utilisateur
