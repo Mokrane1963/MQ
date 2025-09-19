@@ -60,7 +60,7 @@ data = {
 # Interface Streamlit
 # =======================
 st.title("Modélisation des gaz avec le capteur MQ2")
-
+st.subtitle("Hachemi mokrane")
 # Choix du gaz
 choix = st.selectbox("Sélectionnez un gaz :", list(data.keys()))
 
