@@ -60,7 +60,7 @@ data = {
 # Interface Streamlit
 # =======================
 st.title("Modélisation des gaz avec le capteur MQ2")
-st.subtitle("Hachemi mokrane")
+st.markdown("**Développé par: Hachemi Mokrane • Avril 2025**")
 # Choix du gaz
 choix = st.selectbox("Sélectionnez un gaz :", list(data.keys()))
 
@@ -89,29 +89,17 @@ def predict_response(concentration):
 
 # Évaluation du modèle
 predicted_responses = predict_response(concentrations)
-
-
-
-
 equation_text = f"y = {a:.4f} * x^{b:.8f}"
-
-
-
-
-
 # =======================
 # Affichage des métriques
 # =======================
 st.write(f"**Modèle ajusté :** y = {a:.4f} * x^{b:.8f}")
-
-
 # =======================
 # Prédiction utilisateur
 # =======================
 st.subheader("Prédire une nouvelle valeur")
 
 new_concentration = st.number_input("Entrez une concentration en ppm :", min_value=0.0, value=100.0)
-
 if new_concentration > 0:
     predicted_value = predict_response(new_concentration)
     st.success(f"Pour une concentration de {new_concentration:.2f} ppm, la réponse prédite est Rs/R0 = {predicted_value:.4f}")
